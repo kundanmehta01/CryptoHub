@@ -1,27 +1,21 @@
-import React, { useContext, useState, useEffect, useCallback } from "react";
-import { CoinContext } from "../context/CoinContext";
+import React, { useState, useEffect, useCallback } from "react";
+/* import { CoinContext } from "../context/CoinContext"; */
 import { useAuth } from "../context/AuthContext";
-import { useTheme } from "../context/ThemeContext";
+/* import { useTheme } from "../context/ThemeContext"; */
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { FiMenu, FiX, FiUser, FiLogOut } from "react-icons/fi"; // Added react-icons for cleaner UI
 import "./Navbar.css";
 
 function Navbar() {
-  const { setCurrency } = useContext(CoinContext);
+  /* const { setCurrency } = useContext(CoinContext); */
   const { currentUser, logout } = useAuth();
-  // Theme context is kept for logic compatibility but largely overridden by new dark theme
+  /* const { theme } = useTheme(); */
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   const isDashboardPage = location.pathname === "/dashboard";
-
-  const currencies = [
-    { label: "USD", value: "usd", symbol: "$" },
-    { label: "EUR", value: "eur", symbol: "€" },
-    { label: "INR", value: "inr", symbol: "₹" },
-  ];
 
   // Handle scroll effect for navbar
   useEffect(() => {
@@ -32,9 +26,19 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  /* 
+  const currencies = [
+    { label: "USD", value: "usd", symbol: "$" },
+    { label: "EUR", value: "eur", symbol: "€" },
+    { label: "INR", value: "inr", symbol: "₹" },
+  ];
+  */
+
+  /*
   const currencyHandler = useCallback((currency) => {
     setCurrency({ name: currency.value, Symbol: currency.symbol });
   }, [setCurrency]);
+  */
 
   const handleLogout = useCallback(async () => {
     try {

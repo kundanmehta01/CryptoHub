@@ -3,6 +3,7 @@ import "./Home.css";
 import { CoinContext } from "../../context/CoinContext";
 import { Link } from "react-router-dom";
 import { FiSearch, FiArrowUpRight, FiArrowDownRight, FiFilter } from "react-icons/fi";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 const Home = () => {

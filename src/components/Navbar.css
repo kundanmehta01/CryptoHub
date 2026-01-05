@@ -1,3 +1,30 @@
+/* Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap');
+
+:root {
+  /* Cyber-Holo Palette */
+  --bg-deep: rgba(5, 5, 10, 0.6);
+  --glass-surface: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --neon-purple: #b026ff;
+  --neon-cyan: #00f3ff;
+  --text-primary: #ffffff;
+  --text-secondary: #8b9bb4;
+
+  /* Animated Gradients */
+  --gradient-hover: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+  --glow-shadow: 0 0 20px rgba(176, 38, 255, 0.3);
+}
+
+/* Base Reset */
+.navbar,
+.navbar * {
+  box-sizing: border-box;
+  font-family: 'Space Grotesk', sans-serif;
+  /* Tech font */
+}
+
+/* --- Main HUD Container --- */
 .navbar {
   width: 100%;
   position: sticky;
@@ -19,8 +46,6 @@
   padding: 0.8rem 5%;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
-
-/* ... existing code ... */
 
 /* Auth Buttons */
 .auth-buttons {
@@ -68,8 +93,6 @@
   align-items: center;
   gap: 12px;
 }
-
-/* ... existing logo code ... */
 
 /* Right Side Actions */
 .nav-right {

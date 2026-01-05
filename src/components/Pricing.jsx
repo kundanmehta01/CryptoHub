@@ -1,5 +1,6 @@
 import React from "react";
 import "./Pricing.css";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 import { FiCheck, FiX } from "react-icons/fi";
 

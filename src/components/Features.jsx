@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 import "./Features.css";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
 import {
@@ -38,24 +39,24 @@ const Features = () => {
   const currentCoin = topCoins.find(c => c.id === selectedCoin) || topCoins[0];
 
   useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(
+          `https://api.coingecko.com/api/v3/coins/${selectedCoin}/market_chart?vs_currency=inr&days=${days}`
+        );
+        const data = await res.json();
+        setPrices(data.prices || []);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        setPrices([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchData();
   }, [selectedCoin, days]);
-
-  const fetchData = async () => {
-    setLoading(true);
-    try {
-      const res = await fetch(
-        `https://api.coingecko.com/api/v3/coins/${selectedCoin}/market_chart?vs_currency=inr&days=${days}`
-      );
-      const data = await res.json();
-      setPrices(data.prices || []);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setPrices([]);
-    } finally {
-      setLoading(false);
-    }
-  };
 
   const chartData = {
     labels: prices.map((price) =>
